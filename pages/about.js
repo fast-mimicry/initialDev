@@ -5,18 +5,16 @@ import { Headline } from '../components/Headline'
 import { Footer } from '../components/Footer'
 import { Links } from '../components/Links'
 
-
 export default function Home() {
   return (
     <div className={styles.container}>
-      
 
       <main className={styles.main}>
-        <Headline page="index"/>
+        <Headline page="about"/>
         <Links />
       </main>
 
       <Footer />
     </div>
-  )
+  );
 }
