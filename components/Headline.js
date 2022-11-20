@@ -3,7 +3,8 @@ import styles from '../styles/Home.module.css'
 //propsは、親から渡される引数
 export function Headline(props) {
 
-  console.log(props);
+  //deploy時エラーになるためコメント化
+  //console.log(props);
 
   return (
     <div>
