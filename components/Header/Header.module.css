@@ -1,0 +1,19 @@
+.header {
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.link {
+    padding:8px 24px;
+    font-size:1.2rem;
+}
+.link:hover,
+.link:focus,
+.link:active {
+    color:#0070f3;
+    border-color: #0070f3;
+}
