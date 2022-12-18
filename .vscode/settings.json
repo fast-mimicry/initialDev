@@ -1,2 +1,4 @@
+//チームで開発するときは、このsetting.jsonもコミットして共有する
 {
+    "javascript.preferences.importModuleSpecifier": "non-relative"
 }
