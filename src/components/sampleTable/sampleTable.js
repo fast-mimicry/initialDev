@@ -1,20 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Footer } from '../components/Footer/Footer'
-import { Main } from '../components/Main'
+import { Footer } from '../Footer/Footer'
+import { Header } from 'src/components/Header/Header';
 
-export default function Home() {
+export function sampleTable() {
   return (
     <div className={styles.container}>
-
       <Table>
         <thead>
-        <tr>
-          <th>No</th>
-          <th>name</th>
-          <th>check</th>
-        </tr>
+          <tr>
+            <th>No</th>
+            <th>name</th>
+            <th>check</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
@@ -25,7 +22,6 @@ export default function Home() {
         </tbody>
       </Table>
 
-      <Footer />
     </div>
   );
 }
