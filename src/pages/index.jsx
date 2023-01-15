@@ -2,56 +2,65 @@ import styles from "../styles/Home.module.css"
 import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
 import { Main } from '../components/Main'
-import { useCallback, useEffect, useState } from 'react';
+import { useCounter } from "src/hooks/useCounter";
+import { useInputArray } from "src/hooks/useInputArray";
+import { useBgLightBlue } from "src/hooks/useBgLightBlue";
 
+//useCallbackについて
 //コンポーネント内に関数を記述すると
 //再レンダリング時に、関数も再生成されパフォーマンスがやや悪い
-
 //これを解決するには
 //コンポーネント内に「useCallback」を使用する
 
 
 export default function Home() {
-  const [count, setCount] = useState(1)
-  //array[0]: count
-  //array[1]: setCount
 
-  const handleClick = useCallback(
-    e => {
-      console.log(`count:${count}`);
-      if (count < 10) {
-        setCount(count => count + 1)
-
-      }
-
-  },
-  //第二引数は[]の場合であれば、記載しなくてもよい
-  //
-  [count]);
-
-  useEffect(() => {
-    console.log(`マウント時:${count}`);
-    document.body.style.backgroundColor="lightblue";
-
-    //アンマウント時、関数を返します(ex.他ページ遷移時、色が戻ります)
-    return () => {
-      console.log(`アンマウント時:${count}`);
-      document.body.style.backgroundColor="";
-
-    };
-  },
-  //下記配列に変数を格納すると、useEffectを再実行できる
-  //例)「countに変更があったら、useEffectを再実行する」
-  [count]);
-
+  const { count, isShow, handleClick, handleDisplay } = useCounter();
+  const { text, array, handleChange, handleAdd } = useInputArray();
+  useBgLightBlue();
 
   return (
     <div className={styles.container}>
       <Header />
-      <h1>{count}</h1>
-      <button href="/about" onClick={handleClick}>
+      {/* reactはnullを返すと何も表示しない */}
+      <div className={styles.counterViewer}>
+        {isShow ?  
+            <h1>{count}</h1>
+
+          : null
+        }
+        <button href="/about" onClick={handleClick}>
           ボタン
-      </button>
+        </button>
+      </div>
+      <div>
+        <button onClick={handleDisplay}>
+          切り替え
+        </button>
+      </div>
+
+      <div className={styles.memoAdder}>
+        <h3>メモ</h3>
+        <div>
+          <input type="text" value={text} onChange={handleChange} />
+          <button onClick={handleAdd}>
+            追加
+          </button>
+        </div>   
+        <ul>
+          {
+            array.map(item => {
+                return (
+                  //コンポーネントをぐるぐる表示するときは、keyが必要
+                  <li key={item}>
+                    {item}
+                  </li>
+                );
+              })
+          }
+        </ul>
+      </div>
+
       <Main page="index" />
       <Footer />
     </div>

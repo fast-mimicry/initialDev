@@ -1,6 +1,20 @@
+.memoAdder {
+  width: 200px;
+  display: inline-block;
+}
+
+
+
 .container {
   padding: 0 2rem;
   text-align: center;
+}
+
+.counterViewer {
+  display: inline-block;
+  width: 200px;
+  border: 1px solid #ffffff;
+  padding: 8px
 }
 
 .main {
@@ -109,6 +123,8 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+
+
 
 @media (max-width: 600px) {
   .grid {

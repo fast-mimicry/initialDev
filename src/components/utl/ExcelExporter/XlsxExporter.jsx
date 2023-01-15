@@ -5,6 +5,7 @@ export function XlsxExporter(props) {
 
     /**
      * エクセルをダウンロードします
+     * useState必要？
      */
     const handleExport = useCallback(
         async e => {
@@ -16,7 +17,9 @@ export function XlsxExporter(props) {
 
                     let workbook = new ExcelJS.Workbook();
                     let worksheet = workbook.addWorksheet("sheet1") ;
-                    
+                    worksheet.pageSetup = {orientation:'partrait'};
+
+
                     worksheet.columns = [
                       {header: "ID", key: "id"},
                       {header: "名前", key: "name"},
@@ -52,6 +55,8 @@ export function XlsxExporter(props) {
             console.log("01_ブックを作成");
             console.log(worksheet);
 
+            worksheet.getRow(1).getCell(1).value = 'test';
+
             
             //03-1_arrayBufferに変換
             //const download_xlsx = async() => {
@@ -80,7 +85,7 @@ export function XlsxExporter(props) {
                 document.body.appendChild(link);
 
                 link.href = window.URL.createObjectURL( blob );
-                link.download = "sample_" + new Date().localeString + ".xlsx" ;
+                link.download = "sample_" + new Date().toLocaleString() + ".xlsx" ;
                 link.click();
 
                 //下記では削除できないため、要リファクタリング
