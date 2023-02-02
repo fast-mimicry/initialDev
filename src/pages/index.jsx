@@ -15,7 +15,7 @@ import { useBgLightBlue } from "src/hooks/useBgLightBlue";
 
 export default function Home(props) {
   const { 
-    count, isShow, handleClick, handleDisplay,
+    count, doubleCount, isShow, handleClick, handleDisplay,
     text, array, handleChange, handleAdd
    } = props;
   useBgLightBlue();
@@ -27,7 +27,7 @@ export default function Home(props) {
       {/* reactはnullを返すと何も表示しない */}
       <div className={styles.counterViewer}>
         {isShow ?  
-            <h1>{count}</h1>
+            <h1>{doubleCount}</h1>
 
           : null
         }

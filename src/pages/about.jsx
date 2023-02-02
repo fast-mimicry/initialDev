@@ -10,7 +10,7 @@ export default function About(props) {
   console.log(props);
 
   const { 
-    count, isShow, handleClick, handleDisplay,
+    count, doubleCount, isShow, handleClick, handleDisplay,
     text, array, handleChange, handleAdd
    } = props;
   useBgLightBlue();

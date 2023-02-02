@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 /**
  * counterのhooksです
@@ -9,6 +9,15 @@ export const useCounter = () => {
     const [count, setCount] = useState(1);
     //array[0]: count
     //array[1]: setCount
+
+    /**
+     * isShow変更時、doubleCountの再作成が行われてしまう
+     * この為、countに変更があった場合のみ当関数が実行されるようにuseMemo()を使用
+     */
+    //const doubleCount = count * 2;
+    const doubleCount = useMemo(() => {
+      return count * 2;
+    }, [count]);
 
     /**
      * counter部のボタンイベントです
@@ -31,5 +40,5 @@ export const useCounter = () => {
         setIsShow(prevIsShow => !(prevIsShow || false))
     },[]);
 
-    return { count, isShow, handleClick, handleDisplay }
+    return { count, doubleCount, isShow, handleClick, handleDisplay }
 };
