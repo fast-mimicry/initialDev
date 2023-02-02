@@ -13,11 +13,13 @@ import { useBgLightBlue } from "src/hooks/useBgLightBlue";
 //コンポーネント内に「useCallback」を使用する
 
 
-export default function Home() {
-
-  const { count, isShow, handleClick, handleDisplay } = useCounter();
-  const { text, array, handleChange, handleAdd } = useInputArray();
+export default function Home(props) {
+  const { 
+    count, isShow, handleClick, handleDisplay,
+    text, array, handleChange, handleAdd
+   } = props;
   useBgLightBlue();
+
 
   return (
     <div className={styles.container}>
