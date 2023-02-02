@@ -3,7 +3,7 @@ import Head from "next/head"
 import React, {useState} from "react";
 import { useCounter } from 'src/hooks/useCounter';
 import { useInputArray } from 'src/hooks/useInputArray';
-import { useBgLightBlue } from 'src/hooks/useBgLightBlue';
+import { useBgColor } from 'src/hooks/useBgColor';
 
 //・global.cssを使うとき
 //・indexjs,appjs両方に適用するとき
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
   //const { text, array, handleChange, handleAdd } = useInputArray();
   const counter = useCounter();
   const inputArray = useInputArray();
-  useBgLightBlue();
+  useBgColor();
 
 console.log("[app.js]");
 console.log("Component");

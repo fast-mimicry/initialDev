@@ -1,9 +1,8 @@
 import styles from "../styles/Home.module.css"
-
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Main } from '../components/Main'
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
+import { useBgColor } from "src/hooks/useBgColor";
 
 
 export default function About(props) {
@@ -13,7 +12,7 @@ export default function About(props) {
     count, doubleCount, isShow, handleClick, handleDisplay,
     text, array, handleChange, handleAdd
    } = props;
-  useBgLightBlue();
+  useBgColor();
 
   return (
     <div className={styles.container}>

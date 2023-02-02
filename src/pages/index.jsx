@@ -2,9 +2,7 @@ import styles from "../styles/Home.module.css"
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Main } from '../components/Main'
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
+import { useBgColor } from "src/hooks/useBgColor";
 
 //useCallbackについて
 //コンポーネント内に関数を記述すると
@@ -18,7 +16,7 @@ export default function Home(props) {
     count, doubleCount, isShow, handleClick, handleDisplay,
     text, array, handleChange, handleAdd
    } = props;
-  useBgLightBlue();
+  useBgColor();
 
 
   return (
