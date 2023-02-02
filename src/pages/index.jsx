@@ -11,30 +11,25 @@ import { useBgColor } from "src/hooks/useBgColor";
 //コンポーネント内に「useCallback」を使用する
 
 
-export default function Home(props) {
-  const { 
-    count, doubleCount, isShow, handleClick, handleDisplay,
-    text, array, handleChange, handleAdd
-   } = props;
+const Home = (props) => {
   useBgColor();
-
 
   return (
     <div className={styles.container}>
       <Header />
       {/* reactはnullを返すと何も表示しない */}
       <div className={styles.counterViewer}>
-        {isShow ?  
-            <h1>{doubleCount}</h1>
+        {props.isShow ?  
+            <h1>{props.doubleCount}</h1>
 
           : null
         }
-        <button href="/about" onClick={handleClick}>
+        <button href="/about" onClick={props.handleClick}>
           ボタン
         </button>
       </div>
       <div>
-        <button onClick={handleDisplay}>
+        <button onClick={props.handleDisplay}>
           切り替え
         </button>
       </div>
@@ -42,14 +37,14 @@ export default function Home(props) {
       <div className={styles.memoAdder}>
         <h3>メモ</h3>
         <div>
-          <input type="text" value={text} onChange={handleChange} />
-          <button onClick={handleAdd}>
+          <input type="text" value={props.text} onChange={props.handleChange} />
+          <button onClick={props.handleAdd}>
             追加
           </button>
         </div>   
         <ul>
           {
-            array.map(item => {
+            props.array.map(item => {
                 return (
                   //コンポーネントをぐるぐる表示するときは、keyが必要
                   <li key={item}>
@@ -66,3 +61,5 @@ export default function Home(props) {
     </div>
   )
 }
+
+export default Home;

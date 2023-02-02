@@ -33,9 +33,8 @@ const ITEMS = [
   // },
 ]
 
-export function Main(props) {
+export const Main = (props) => {
 
-  
   //Linkコンポーネントのロジックです
   const [items, setItems] = useState(ITEMS);
   const handleReduce = useCallback(() => {
@@ -46,9 +45,7 @@ export function Main(props) {
   },[]);
 
   return (
-     
       <main className={classes.main}>
-
         <XlsxExporter />
         {/* <XlsxExporter3rd /> */}
 
@@ -60,6 +57,5 @@ export function Main(props) {
         {/* ITEMS => setItems => items */}
         <Links items={items} />
       </main>
-
-  )
-}
+  );
+};

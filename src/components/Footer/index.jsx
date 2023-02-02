@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import classes from './Footer.module.css'
 
-export function Footer() {
+export const Footer = () => {
   return (
       <footer className={classes.footer}>
         <a
@@ -18,3 +18,4 @@ export function Footer() {
       </footer>
   );
 }
+

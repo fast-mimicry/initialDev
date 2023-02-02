@@ -9,7 +9,7 @@ import { useBgColor } from 'src/hooks/useBgColor';
 //・indexjs,appjs両方に適用するとき
 //など、ここ_appjsを使います
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   //const { count, isShow, handleClick, handleDisplay } = useCounter();
   //const { text, array, handleChange, handleAdd } = useInputArray();
   const counter = useCounter();
