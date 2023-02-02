@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css'
-import { Footer } from '../Footer/Footer'
-import { Header } from 'src/components/Header/Header';
+import { Footer } from '../Footer'
+import { Header } from 'src/components/Header';
 
 export function sampleTable() {
   return (

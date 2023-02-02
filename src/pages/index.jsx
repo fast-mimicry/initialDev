@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css"
-import { Header } from '../components/Header/Header'
-import { Footer } from '../components/Footer/Footer'
+import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 import { Main } from '../components/Main'
 import { useCounter } from "src/hooks/useCounter";
 import { useInputArray } from "src/hooks/useInputArray";
