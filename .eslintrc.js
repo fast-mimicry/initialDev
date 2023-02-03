@@ -1,13 +1,11 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true,
-        // "node": true
+        "es2022": true
     },
     //この設定内で設定があるため、ecmafeaturesは不要
     "extends": [
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended"
+        "eslint:recommended"
     ],
     "overrides": [
     ],
@@ -21,9 +19,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "semi":["error", "always"],
-        "quotes": ["error", "always"],
-        "react/prop-types": "error",
         "no-undef":"error"
     }
 }
