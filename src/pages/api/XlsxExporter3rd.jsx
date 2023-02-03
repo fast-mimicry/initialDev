@@ -14,10 +14,10 @@ export async function XlsxExporter3rd(props){
             {id: 2, name: 'vivi'}
         );
             
-        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        res.setHeader('Content-Disposition', 'attachment; filename=excel-file.xlsx')
-        await workbook.xlsx.write(res)
-        res.end();
+        //res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        //res.setHeader('Content-Disposition', 'attachment; filename=excel-file.xlsx')
+        //await workbook.xlsx.write(res)
+        //res.end();
     }
 
     return (
