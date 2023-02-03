@@ -1,11 +1,9 @@
 import styles from '../styles/Home.module.css'
-import { Footer } from '../Footer'
-import { Header } from 'src/components/Header';
 
 export function sampleTable() {
   return (
     <div className={styles.container}>
-      <Table>
+      <table>
         <thead>
           <tr>
             <th>No</th>
@@ -20,7 +18,7 @@ export function sampleTable() {
             <td>check</td>  
           </tr> 
         </tbody>
-      </Table>
+      </table>
 
     </div>
   );

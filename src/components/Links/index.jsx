@@ -1,7 +1,4 @@
-import Head from 'next/head'
-import { useCallback, useState } from 'react';
 import classes from './Links.module.css'
-
 
 //ロジックは親(Main())に持っていく。この後、Links()はLinks(props)で置き換える
 
