@@ -5,6 +5,7 @@ import { Footer } from "src/components/Footer";
 import { Posts } from "src/components/Posts";
 
 import Link from "next/link";
+import { useExcelExporter } from "src/hooks/useExcelExporter";
 
 //useCallbackについて
 //コンポーネント内に関数を記述すると
@@ -12,7 +13,8 @@ import Link from "next/link";
 //これを解決するには
 //コンポーネント内に「useCallback」を使用する
 
-const Home = () => {
+const Home = (props) => {
+  //useExcelExporter();
   return (
     <div className={styles.container}>
       {/* pageBody内のHeaderです */ }
@@ -21,7 +23,9 @@ const Home = () => {
         <Link href={"/about"}>
           {`テストリンク`}
         </Link>
-        
+      <button onClick={props.handleClick_ExcelExporter}>
+        ExcelExport
+      </button>
       <Posts />
 
       <Footer />

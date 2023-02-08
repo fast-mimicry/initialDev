@@ -4,6 +4,7 @@ import React from "react";
 import { useCounter } from 'src/hooks/useCounter';
 import { useInputArray } from 'src/hooks/useInputArray';
 import { useBgColor } from 'src/hooks/useBgColor';
+import { useExcelExporter } from 'src/hooks/useExcelExporter';
 
 //・global.cssを使うとき
 //・indexjs,appjs両方に適用するとき
@@ -14,6 +15,7 @@ const MyApp = ({ Component, pageProps }) => {
   //const { text, array, handleChange, handleAdd } = useInputArray();
   const counter = useCounter();
   const inputArray = useInputArray();
+  const excelExporter = useExcelExporter();
   useBgColor();
 
   return (
@@ -31,6 +33,7 @@ const MyApp = ({ Component, pageProps }) => {
         {...pageProps} 
         {...counter} 
         {...inputArray} 
+        {...excelExporter} 
       />
     </div>
   );

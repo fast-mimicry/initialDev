@@ -8,6 +8,14 @@
 .container {
   padding: 0 2rem;
   text-align: center;
+
+  /* min-height: 100vh; */
+
+  /*** ルートコンテナ配下は、すべての要素を中央に寄せます ***/
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .counterViewer {
