@@ -46,8 +46,6 @@ export const Main = (props) => {
 
   return (
       <main className={classes.main}>
-        <XlsxExporter />
-        {/* <XlsxExporter3rd /> */}
 
         {/* 子のHeadLineに対し、引数として(handleReduce)を渡す */}
         <Headline page={props.page} handleReduce={handleReduce} >
