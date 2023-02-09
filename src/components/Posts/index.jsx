@@ -1,14 +1,52 @@
-import { useCallback, useEffect, useState } from "react";
+import classes from 'src/components/Posts/Posts.module.css'
+import { useCallback, useEffect, useReducer, useState } from "react";
 
-/* ひとまずDevTools > Network > throttlingで3Gを選択すると、ローディング表示を確認できる */        
-export const Posts = () => {
+//reducerの動作メモ
+/**
+* 1, initialStateをstateにセット
+* 2, reducerは、(state, action)を受け取り、newStateを返す
+*/
 
-  //API実行用の変数です
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState(null);
-  //ローディング中の表示管理
-  const [loading, setLoading] = useState(true);
+  //1,初期state
+  const initialState = {
+    data: [],         
+    loading: true,    
+    error: null       
+  };
+ 
+  //2,state, actionを受け取り、新しいnewStateを返す
+  //const reducer = (state, action) => newState;
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "end":{
+        console.log("action.type:end");
+        console.log(action);
+        return {
+          ...state,
+          data: action.data,
+          loading: false
+        };
+      }
+      case "error":
+        return {
+          ...state,
+          loading: false,
+          error: action.error
+        };
+      default:
+        //存在しないaction.typeである場合
+        throw new Error("No Such Action Type");
+    }
+  };
 
+/**
+ * APIを実行します( Reducer を使用 )
+ */
+export const Posts = (props) => {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  //APIエンドポイントを実行します
   const getPosts = useCallback(async () => {
     //非同期はtry-catchでハンドリングした方がよいかもしれない
     try {
@@ -27,39 +65,62 @@ export const Posts = () => {
         throw new Error("エラーが発生したため、データが取得できませんでした。");
       }
       const jsonObj = await res.json();
-      setPosts(jsonObj);
+      //読み込み完了
+      // setState(prevState => {
+      //   return {
+      //     ...prevState,
+      //     data: jsonObj,
+      //     loading: false
+      //   }
+      // });
+      dispatch({
+        type:"end",
+        data: jsonObj
+      });
     } catch (error) {
-      setError(error);
+      //エラー処理
+      // setState(prevState => {
+      //   return {
+      //     ...prevState,
+      //     loading: false,
+      //     error
+      //   }
+      // });
+      dispatch({
+        type:"error",
+        error
+      });
     }
-    //読み込み完了
-    setLoading(false);
-  },[])
+  },[]);
 
   //getPost呼び出し
   useEffect(() => {
     getPosts();
   },[getPosts]);
 
-  if (loading) {
+  if (state.loading) {
     return <div>ローディング中です</div>
   }
 
-  if (error) {
-    return <div>{error.message}</div>
+  if (state.error) {
+    return <div>{state.error.message}</div>
   }
 
-  if (posts.length <= 0) {
+  if (state.data.length <= 0) {
     return <div>データは空です</div>
   }
 
   return (
-    <ol>
-          {posts.slice(0, 10)
-          .map(post => {
-            return (
-              <li key={post.id}>{`${post.id}:${post.title}`}</li>
-            );
-          })}
-    </ol>
+    <div>
+      <h2 className={classes.textAlignLeft}>APIを実行</h2>
+      <ol>
+        {state.data.slice(0, 10)
+        .map(post => {
+          return (
+            <li key={post.id}>{`${post.id}:${post.title}`}</li>
+          );
+        })}
+      </ol>
+    </div>
   );  
 };
