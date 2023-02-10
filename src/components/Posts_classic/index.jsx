@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 /**
  * クラシックなAPI実行用コンポーネントです
  */
-export const Posts = (props) => {
+export const Posts_classic = (props) => {
 
   // //API実行用の変数です
   // const [posts, setPosts] = useState([]);
