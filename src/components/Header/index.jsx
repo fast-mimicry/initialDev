@@ -9,13 +9,15 @@ const NAV_ITEMS = [
 export const Header = () => {
   return (
     <header className={classes.header}>
-      {/* Linkをここに書きます */}
       {NAV_ITEMS.map(item => {
-        <Link key={item.href} href={item.href} className={classes.link}>
-          {item.label}
-        </Link>
-       })
-      }
+        return (
+        <li key={item.href} >
+          <Link href={item.href} className={classes.link}>
+            {item.label}
+          </Link>
+        </li>
+       );
+      })}
    </header>
   );
 }
