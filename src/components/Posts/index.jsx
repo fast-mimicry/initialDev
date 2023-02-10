@@ -1,3 +1,4 @@
+import Link from "next/link";
 import classes from "src/components/Posts/Posts.module.css";
 import { usePosts } from "src/hooks/usePosts";
  
@@ -28,6 +29,8 @@ export const Posts = (props) => {
     return <div>データは空です</div>
   }
 
+  //<li key={post.id}>{`${post.id}:${post.title}`}</li>
+
   return (
     <div>
       <h2 className={classes.textAlignLeft}>APIを実行</h2>
@@ -35,7 +38,11 @@ export const Posts = (props) => {
         {data.slice(0, 10)
         .map(post => {
           return (
-            <li key={post.id}>{`${post.id}:${post.title}`}</li>
+            <li key={post.id}>
+              <Link href={`/post/${post.id}`}>
+                {`${post.id}:${post.title}`}
+              </Link>
+            </li>
           );
         })}
       </ol>
