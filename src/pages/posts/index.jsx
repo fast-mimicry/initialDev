@@ -1,11 +1,7 @@
 import styles from "src/styles/Home.module.css"
 import { Header } from 'src/components/Header'
-import { useBgColor } from "src/hooks/useBgColor";
 import { Footer } from "src/components/Footer";
 import { Posts } from "src/components/Posts";
-
-import Link from "next/link";
-import { useExcelExporter } from "src/hooks/useExcelExporter";
 
 //useCallbackについて
 //コンポーネント内に関数を記述すると
@@ -14,20 +10,13 @@ import { useExcelExporter } from "src/hooks/useExcelExporter";
 //コンポーネント内に「useCallback」を使用する
 
 const Home = (props) => {
-  //useExcelExporter();
   return (
     <div className={styles.container}>
-      {/* pageBody内のHeaderです */ }
       <Header />
-        <div>test</div>
-        <Link href={"/about"}>
-          {`テストリンク`}
-        </Link>
       <button onClick={props.handleClick_ExcelExporter}>
         ExcelExport
       </button>
       <Posts />
-
       <Footer />
     </div>
   )
