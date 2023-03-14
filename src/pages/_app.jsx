@@ -11,11 +11,8 @@ import { useExcelExporter } from 'src/hooks/useExcelExporter';
 //など、ここ_appjsを使います
 
 const MyApp = ({ Component, pageProps }) => {
-  //const { count, isShow, handleClick, handleDisplay } = useCounter();
-  //const { text, array, handleChange, handleAdd } = useInputArray();
   const counter = useCounter();
   const inputArray = useInputArray();
-  const excelExporter = useExcelExporter();
   useBgColor();
 
   return (
@@ -33,7 +30,6 @@ const MyApp = ({ Component, pageProps }) => {
         {...pageProps} 
         {...counter} 
         {...inputArray} 
-        {...excelExporter} 
       />
     </div>
   );

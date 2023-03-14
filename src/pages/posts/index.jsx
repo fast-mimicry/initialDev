@@ -13,9 +13,6 @@ const Home = (props) => {
   return (
     <div className={styles.container}>
       <Header />
-      <button onClick={props.handleClick_ExcelExporter}>
-        ExcelExport
-      </button>
       <Posts />
       <Footer />
     </div>

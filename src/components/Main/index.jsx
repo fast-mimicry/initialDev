@@ -1,10 +1,7 @@
 import classes from 'src/components/Main/Main.module.css'
 import { Headline } from 'src/components/Headline'
 import { Links } from 'src/components/Links'
-import { XlsxExporter } from "src/components/utl/ExcelExporter/XlsxExporter"
-import { XlsxExporter3rd } from 'src/pages/api/XlsxExporter3rd'
 import { useCallback, useState } from 'react'
-//import { XlsxExporter2nd } from "src/pages/api/XlsxExporter2nd"
 
 const ITEMS = [
   //1st
