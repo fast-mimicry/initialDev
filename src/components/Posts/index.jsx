@@ -2,7 +2,18 @@ import Link from "next/link";
 import classes from "src/components/Posts/Posts.module.css";
 import { useExcelExporter } from "src/hooks/useExcelExporter";
 import { usePosts } from "src/hooks/usePosts";
- 
+
+import CloudDownload from "@mui/icons-material/CloudDownload";
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+
+const actions = [
+  { icon: <FileCopyIcon />, name: 'Copy_temp' },
+  { icon: <CloudDownload />, name: 'ExportExcel' },
+];
+
 /**
  * 親ページを作成します
  * APIを実行し、取得結果を一覧表示します( SWR を使用 )
@@ -25,14 +36,34 @@ export const Posts = () => {
     return <h2>データは空です</h2>
   }
 
+  console.log({data: data});
+
   return (
     <div>
       <h2 className={classes.textAlignLeft}>APIを実行</h2>
       <ol>
         <div>
-          <button onClick={ data => exportExcel(data)}>
-            ExcelExport
-          </button>
+        <SpeedDial
+          ariaLabel="SpeedDial basic example"
+          sx={{ position: 'absolute', bottom: 24, right: 24, fontSize: `80px` }}
+          icon={<SpeedDialIcon />}
+        >
+        {actions.map((action) => {
+            return action.name === "ExportExcel" ?
+              (<SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                onClick={() => exportExcel(data)}
+              />)
+              :
+              (<SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+              />)
+        })}
+        </SpeedDial>
         </div>
         {data ? data.slice(0, 15)
           .map(post => {

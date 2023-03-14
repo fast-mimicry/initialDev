@@ -17,6 +17,8 @@ export const useExcelExporter = () => {
      */
     const exportExcel = useCallback( async (data) => {
 
+        console.log({data: data});
+
         //ブックを作成
         let workbook = new excel.Workbook();
         let worksheet = workbook.addWorksheet("sheet1");
