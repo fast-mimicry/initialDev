@@ -45,7 +45,18 @@ export const Posts = () => {
         <div>
         <SpeedDial
           ariaLabel="SpeedDial basic example"
-          sx={{ position: 'absolute', bottom: 24, right: 24, fontSize: `80px` }}
+          sx={{ 
+            position: 'absolute',
+            bottom: 24,
+            right: 24,
+            '& .MuiFab-primary': { 
+              width: 70,
+              height: 70,
+              backgroundColor:"lightblue",
+              '& .MuiSpeedDialIcon-icon': { fontSize: 28 },
+              '&:hover': {backgroundColor:"#ffa500",opacity:0.5 }
+            }
+        }}
           icon={<SpeedDialIcon />}
         >
         {actions.map((action) => {
@@ -54,6 +65,7 @@ export const Posts = () => {
                 key={action.name}
                 icon={action.icon}
                 tooltipTitle={action.name}
+                sx={{width: 50, height: 50, backgroundColor: 'lightblue','&:hover': {backgroundColor:"#FFD27F"}}}
                 onClick={() => exportExcel(data)}
               />)
               :
@@ -61,6 +73,7 @@ export const Posts = () => {
                 key={action.name}
                 icon={action.icon}
                 tooltipTitle={action.name}
+                sx={{width: 50, height: 50, backgroundColor: 'lightblue','&:hover': {backgroundColor:"#FFD27F"}}}
               />)
         })}
         </SpeedDial>
