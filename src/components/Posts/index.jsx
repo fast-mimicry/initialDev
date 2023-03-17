@@ -39,8 +39,11 @@ export const Posts = () => {
   console.log({data: data});
 
   return (
-    <div>
-      <h2 className={classes.textAlignLeft}>APIを実行</h2>
+    <div className={classes.postsContainer}>
+      <h1 className={`${classes.textAlignLeft} ${classes.fontGradBlueEn}`}>
+        <span >API</span>
+        <span className={classes.fontGradBlueJp}> を実行</span>
+      </h1>
       <ol>
         <div>
         <SpeedDial
@@ -82,9 +85,11 @@ export const Posts = () => {
           .map(post => {
             return (
               /* 子ページのリンクを展開します */
-              <li key={post.id}>
-                <Link href={`/posts/${post.id}`}>
-                  {`${post.id}:${post.title}`}
+              <li key={post.id} >
+                <Link href={`/posts/${post.id}`} className={classes.apiList} >
+                  <div>
+                    {`${post.id}:${post.title}`}
+                  </div>
                 </Link>
               </li>
             );
