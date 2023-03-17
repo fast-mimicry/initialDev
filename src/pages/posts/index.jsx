@@ -1,7 +1,6 @@
-import styles from "src/styles/Home.module.css"
-import { Header } from 'src/components/Header'
+import { Header } from 'src/components/Header';
 import { Footer } from "src/components/Footer";
-import { Posts } from "src/components/Posts";
+import { Posts as PostsComponent } from "src/components/Posts";
 
 //useCallbackについて
 //コンポーネント内に関数を記述すると
@@ -9,14 +8,14 @@ import { Posts } from "src/components/Posts";
 //これを解決するには
 //コンポーネント内に「useCallback」を使用する
 
-const Home = (props) => {
+const Posts = (props) => {
   return (
-    <div className={styles.container}>
+    <div>
       <Header />
-      <Posts />
+      <PostsComponent />
       <Footer />
     </div>
   )
 };
 
-export default Home;
+export default Posts;

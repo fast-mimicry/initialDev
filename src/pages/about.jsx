@@ -1,9 +1,8 @@
-import styles from "src/styles/Home.module.css"
+import styles from "src/components/Layout/Layout.module.css"
 import { Header } from 'src/components/Header'
 import { Footer } from 'src/components/Footer'
 import { Main } from 'src/components/Main'
 import { useBgColor } from "src/hooks/useBgColor";
-
 
 const About = (props) => {
   // const { 
@@ -13,7 +12,7 @@ const About = (props) => {
   useBgColor();
 
   return (
-    <div className={styles.container}>
+    <div>
       <Header />
       {/* reactはnullを返すと何も表示しない */}
       <div className={styles.counterViewer}>

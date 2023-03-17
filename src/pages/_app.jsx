@@ -4,7 +4,7 @@ import React from "react";
 import { useCounter } from 'src/hooks/useCounter';
 import { useInputArray } from 'src/hooks/useInputArray';
 import { useBgColor } from 'src/hooks/useBgColor';
-import { useExcelExporter } from 'src/hooks/useExcelExporter';
+import { Layout } from 'src/components/Layout';
 
 //・global.cssを使うとき
 //・indexjs,appjs両方に適用するとき
@@ -21,16 +21,18 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {/*-- 各ページ を呼び出します --*/}
-      {/* _app.jsxでは */}
-      {/* Component にPropsとして渡したものは*/}
-      {/* 各ページにPropsとして渡る          例：index.jsでprops.fooで123が取得できる*/}
-      <Component 
-        {...pageProps} 
-        {...counter} 
-        {...inputArray} 
-      />
+      <Layout>
+        {/*-- 各ページ を呼び出します --*/}
+        {/* _app.jsxでは */}
+        {/* Component にPropsとして渡したものは*/}
+        {/* 各ページにPropsとして渡る          例：index.jsでprops.fooで123が取得できる*/}
+        <Component 
+          {...pageProps} 
+          {...counter} 
+          {...inputArray} 
+        />
+      </Layout>
+      
     </div>
   );
 };
