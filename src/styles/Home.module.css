@@ -3,11 +3,24 @@
   display: inline-block;
 }
 
-
-
 .container {
   padding: 0 2rem;
   text-align: center;
+
+  /* min-height: 100vh; */
+
+  /*** ルートコンテナ配下は、すべての要素を中央に寄せます ***/
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 検証用暫定スタイルです */
+.container2 {
+  padding: 0 2rem;
+  max-width: 600px;
+  margin: 0 auto;
 
   /* min-height: 100vh; */
 

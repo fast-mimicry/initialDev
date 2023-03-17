@@ -1,4 +1,4 @@
-import classes from "src/components/Posts/Posts.module.css";
+import classes from "src/components/Post/Post.module.css";
 import Head from "next/head";
 import { usePost } from "src/hooks/usePost";
  
@@ -18,7 +18,7 @@ export const Post = (props) => {
   }
 
   return (
-    <div className={classes.textAlignLeft}>
+    <div className={classes.postContainer}>
       <Head>
         <title>{post?.title}</title>
       </Head>
