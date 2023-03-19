@@ -35,8 +35,6 @@ export const Posts = () => {
     return <h2>データは空です</h2>
   }
 
-  console.log({data: data});
-
   return (
     <div className={classes.postsContainer}>
       <h1 className={`${classes.textAlignLeft} ${classes.fontGradBlueEn}`}>

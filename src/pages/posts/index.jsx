@@ -1,6 +1,7 @@
 import { Header } from 'src/components/Header';
 import { Footer } from "src/components/Footer";
 import { Posts as PostsComponent } from "src/components/Posts";
+import Head from 'next/head';
 
 //useCallbackについて
 //コンポーネント内に関数を記述すると
@@ -11,6 +12,9 @@ import { Posts as PostsComponent } from "src/components/Posts";
 const Posts = (props) => {
   return (
     <div>
+      <Head>
+        <title>Posts Page</title>
+      </Head>
       <Header />
       <PostsComponent />
       <Footer />

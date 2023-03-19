@@ -2,20 +2,19 @@ import { fetcher } from "src/utls/fetcher";
 import useSWR from "swr";
 
 /**
- * 親ページ用API実行の為のhooksです
+ * CommentsのAPIリスト取得用のhooksです
  */
-export const usePosts = () => {
-  const POSTS_API = `https://jsonplaceholder.typicode.com/posts`;
+export const useUsers = () => {
+  const USERS_API = `https://jsonplaceholder.typicode.com/users`;
   const { data, error } = useSWR(
-        `${POSTS_API}`
+        `${USERS_API}`
         ,fetcher
   );
 
-  return { 
+  return {
     data,
     error,
     isLoading: !data && !error,
     isEmpty: data && data.length <= 0
   };
 };
- 
