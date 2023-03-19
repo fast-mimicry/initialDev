@@ -29,7 +29,7 @@ export const Comments = () => {
         {data ? data.slice(0, 15)
           .map(comment => {
             return (
-              <li>
+              <li key={comment.id}>
                 <Link href={`/comments/${comment.id}`}>
                   <div>{`${comment.id}: ${comment.body}`}</div>
                 </Link>
