@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useComments } from 'src/hooks/useComments';
+import { useComments } from 'src/hooks/useFetchArray';
+
 
 /**
  * 親ページを作成します

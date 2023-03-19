@@ -3,8 +3,9 @@ import useSWR from "swr";
 
 /**
  * CommentsのAPIリスト取得用のhooksです
+ * (useFetchArrayにまとめたため現在は不要)
  */
-export const useUsers = () => {
+export const useUsers_legacy = () => {
   const USERS_API = `https://jsonplaceholder.typicode.com/users`;
   const { data, error } = useSWR(
         `${USERS_API}`

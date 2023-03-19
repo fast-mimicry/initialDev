@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useUsers } from 'src/hooks/useUsers';
+import { useUsers } from "src/hooks/useFetchArray";
 
 /**
  * 親ページを作成します
