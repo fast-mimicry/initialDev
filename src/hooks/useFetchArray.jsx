@@ -22,16 +22,28 @@ export const useFetchArray = url => {
 const API_URI = "https://jsonplaceholder.typicode.com";
 
 //commentsのAPIリストを取得します
-export const useComments = url => {
+export const useComments = () => {
   return useFetchArray(`${API_URI}/comments`);
 }
 
 //postsのAPIリストを取得します
-export const usePosts = url => {
+export const usePosts = () => {
   return useFetchArray(`${API_URI}/posts`);
 }
 
 //usersのAPIリストを取得します
-export const useUsers = url => {
+export const useUsers = () => {
   return useFetchArray(`${API_URI}/users`);
+}
+
+/**
+ * 子ページ取得する為のhooksです
+ * @param {*} id 
+ */
+export const useCommentsByPostsId = id => {
+  return useFetchArray(id ? `${API_URI}/comments?postId=${id}` : null);
+}
+
+export const useUsersByPostsId = id => {
+  return useFetchArray(id ? `${API_URI}/users?postId=${id}` : null);
 }
