@@ -9,7 +9,7 @@ import { fetcher } from "src/utls/fetcher";
  
 /*
 type Posts = {
-  userId: String;
+  userId: String;    //User.id
   id: Number;
   title: String;
   body: String;

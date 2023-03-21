@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useComments } from 'src/hooks/useFetchArray';
 
-
 /**
  * 親ページを作成します
  * APIを実行し、取得結果を一覧表示します( SWR を使用 )

@@ -39,9 +39,17 @@ export const useUsers = () => {
 /**
  * 子ページ取得する為のhooksです
  * @param {*} id 
+ * @return idで絞ったオブジェクトを返します
  */
 export const useCommentsByPostsId = id => {
   return useFetchArray(id ? `${API_URI}/comments?postId=${id}` : null);
+}
+
+export const usePostsByUserId = id => {
+
+  console.log(id ? `${API_URI}/posts?userId=${id}` : null);
+
+  return useFetchArray(id ? `${API_URI}/posts?userId=${id}` : null);
 }
 
 export const useUsersByPostsId = id => {

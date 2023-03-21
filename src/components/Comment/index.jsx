@@ -2,6 +2,16 @@ import classes from "src/components/Comment/Comment.module.css";
 import Head from "next/head";
 import { useComment } from "src/hooks/useComment";
  
+/*
+type Comments = {
+  postId: String;   //Post.id
+  id: Number;
+  name: String;
+  email: String;
+  body: String;
+}
+*/
+
 /**
  * 子ページを作成します
  */
