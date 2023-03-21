@@ -21,7 +21,7 @@ type Props = {
 */
 
 /**
- * Postsの明細ページを作成します
+ * コメント(Comment)の投稿先(Post)を取得します(Postは一意を想定)
  */
 export const PostByCommentId = (props) => {
   const { data, error, isLoading } = usePost(props.id);

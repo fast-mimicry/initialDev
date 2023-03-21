@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { useCommentsByPostsId } from "src/hooks/useFetchArray";
+import { useCommentsByPostId } from "src/hooks/useFetchArray";
 
 /**
  * 子ページ内にコメントを表示します
  * @param id postの項番(id)です
  */
 export const CommentsByPostId = (props) => {
-  const { data,error,isLoading, isEmpty} = useCommentsByPostsId(props.id);
+  const { data,error,isLoading, isEmpty} = useCommentsByPostId(props.id);
 
   if (isLoading) {
     return <h2>ローディング中です</h2>

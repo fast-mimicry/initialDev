@@ -3,6 +3,7 @@ import useSWR from "swr";
 
 /**
  * 子ページ用API実行の為のhooksです
+ * @id Post.idです
  */
 export const usePost = (id) => {
   
