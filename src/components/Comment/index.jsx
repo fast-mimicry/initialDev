@@ -41,7 +41,7 @@ export const Comment = (props) => {
           <li>{data.name}</li>
           <li>{data.email}</li>
         </ul>
-        <h2>元の記事</h2>
+        <h2>コメントの投稿先</h2>
         <PostByCommentId id={data.id} />
       </div>
     );
