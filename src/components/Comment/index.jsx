@@ -1,6 +1,7 @@
 import classes from "src/components/Comment/Comment.module.css";
 import Head from "next/head";
 import { useComment } from "src/hooks/useComment";
+import { PostByCommentId } from "src/components/Post/PostByCommentId";
  
 /*
 type Comments = {
@@ -40,6 +41,8 @@ export const Comment = (props) => {
           <li>{data.name}</li>
           <li>{data.email}</li>
         </ul>
+        <h2>元の記事</h2>
+        <PostByCommentId id={data.id} />
       </div>
     );
   }

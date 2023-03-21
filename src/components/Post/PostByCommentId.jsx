@@ -14,18 +14,24 @@ type Posts = {
   title: String;
   body: String;
 }
-type Props = {
-  id: String;
-}
 */
 
 /**
  * Postsの明細ページを作成します
  */
-export const Post = (props) => {
+export const PostByCommentId = (props) => {
   const router = useRouter();
-  const { data, error, isLoading } = usePost(router.query.id);
+  const POSTS_PROPS_API = `https://jsonplaceholder.typicode.com/posts/${router.query.id}`;
+  const { data, error } = useSWR(
+    //(router.query.id)が初期ロード時undefinedとなりエラーとなる
+    //これを考慮し、undefinedをエスケープする(swr公式にも記載(条件付きfetch)がある模様)
+      router.query.id 
+        ? POSTS_PROPS_API 
+        : null
+      ,fetcher
+   );
   
+  const isLoading = !data && !error;
   if (isLoading) {
     return <h2>ローディング中です</h2>
   }
