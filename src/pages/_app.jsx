@@ -1,3 +1,4 @@
+//import 'tailwindcss/tailwind.css'
 import 'src/styles/globals.css'
 import Head from "next/head"
 import React from "react";
@@ -5,6 +6,7 @@ import { useCounter } from 'src/hooks/useCounter';
 import { useInputArray } from 'src/hooks/useInputArray';
 import { useBgColor } from 'src/hooks/useBgColor';
 import { Layout } from 'src/components/Layout';
+
 
 //・global.cssを使うとき
 //・indexjs,appjs両方に適用するとき

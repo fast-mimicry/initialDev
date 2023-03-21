@@ -1,3 +1,6 @@
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --font-en: 'Rubik', 'Noto Sans JP', sans-serif;
   --font-jp: 'Noto Sans JP', sans-serif;
