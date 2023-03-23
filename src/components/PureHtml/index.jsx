@@ -2,7 +2,42 @@ import classes from "src/components/PureHtml/PureHtml.module.css";
 import { Header } from 'src/components/Header';
 import Head from "next/head";
 
-export const PureHtmlComponent = () => {
+export const PureHtmlComponent = (props) => {
+
+  /**
+   * onClickテスト
+   */
+  const exportFile = async () => {
+    alert("clickしました");
+
+    //　操作対象の要素を取得
+    const notifsElm = document.querySelectorAll('[name="loading-notifs"]');
+    
+    // 表示する
+    const getInitialized = () => {
+      return new Promise((resolve) => {
+        notifsElm.forEach(x => {
+          x.style.visibility = 'visible';
+        });
+        return resolve();
+      } )
+    };
+    await getInitialized();
+
+    // 2秒後に非表示にする
+    const getFadeOut = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          notifsElm.forEach(x => {
+            x.style.visibility = 'hidden';
+          });
+          return resolve();
+        }, 1000);
+      } )
+    };
+    await getFadeOut();
+
+  };
 
   return (
     <div>
@@ -16,14 +51,21 @@ export const PureHtmlComponent = () => {
       </Head>
       <Header />
 
-      <body>
         
-        <div>
+      <div>
           <p>Accelerate Your Career:</p>
-                rootContainer1
-          <p style={{"background-color": "blue", padding:"10px", "border-radius":"100px", "text-align":"center"}}>
-            <span class="material-icons" style={{"font-size": "64px"}}>cloud_download</span>
-          </p>
+              rootContainer1
+          
+          {/* ダウンロードボタン */}
+          <button 
+            style={{"background-color": "blue", padding:"10px", "border-radius":"100px", "text-align":"center"}} 
+            onClick={() => exportFile()}
+          >
+            
+          </button>
+
+          <span class="material-icons" style={{"font-size": "64px"}}>cloud_download</span>
+
           {/* 横幅100vwでページを開始します */}
           <div style={{ display:"relative"}} >
             <div style={{ position:"absolute", left:"0", width:"100vw" }} >
@@ -56,7 +98,7 @@ export const PureHtmlComponent = () => {
           </div>
 
           {/* 下部に表示するスナックバー */}
-          <div style={{ position:"absolute",left:"0",bottom: "0" }} >
+          <div name="loading-notifs"  style={{ position:"absolute",left:"0",bottom: "0" }} >
             <div className={classes.notifs}>
               <ol>
                 <li><span>Down Loading</span></li>
@@ -71,7 +113,7 @@ export const PureHtmlComponent = () => {
 
 
         </div>
-      </body>
+      
 
     </div>
   );
