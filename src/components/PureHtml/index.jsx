@@ -17,10 +17,10 @@ export const PureHtmlComponent = (props) => {
    * 画面ロード時(マウント時)に実行するイベントを定義します
    * (通常はuseEffectを使います)
    */
+   /*
   document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded!!!');
-
-    /*
+   
     //apiで画像を取得する
     const apiResponse = async() => {
         await fetch("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png")
@@ -36,8 +36,9 @@ export const PureHtmlComponent = (props) => {
             });
     }
 
-    */
+   
   });
+   */
 
   /**
    * ダウンロードボタンクリック時のイベントを定義します
@@ -172,7 +173,7 @@ export const PureHtmlComponent = (props) => {
                     <div className={classes[`base-card__cardLayout__card`]}>
                       {/* 工事中 */}
                       <div style={{ position:"absolute", width:"calc(100% + 20px)",height:"calc(100% + 20px)", "z-index":"2", top:"-10px",left:"-10px", "background-color":"rgba(0,0,0,.5)" }}> 
-                        <div style={{ "display":"flex", "justifyContent":"center", "align-items": "center", padding:"8px" }}>
+                        <div style={{ "display":"flex", "justifyContent":"center", "align-items": "center", padding:"8px", height:"100%" }}>
                           <span className={classes[`text-2xl`]} style={{ "align-items": "center", color:"#fcfcfc", border:"1px solid #fcfcfc" }}>
                             工事中
                          </span>
@@ -185,7 +186,7 @@ export const PureHtmlComponent = (props) => {
                     <div className={classes[`base-card__cardLayout__card`]}>
                       {/* 工事中 */}
                       <div style={{ position:"absolute", width:"calc(100% + 20px)", height:"calc(100% + 20px)", "z-index":"2", top:"-10px",left:"-10px", "background-color":"rgba(0,0,0,.5)" }}> 
-                        <div style={{ "display":"flex", "justifyContent":"center", "align-items": "center", padding:"8px",height:"100%" }}>
+                        <div style={{ "display":"flex", "justifyContent":"center", "align-items": "center", padding:"8px", height:"100%" }}>
                           <span className={classes[`text-2xl`]} style={{ "align-items": "center", color:"yellow" }}>
                             準備中
                          </span>
