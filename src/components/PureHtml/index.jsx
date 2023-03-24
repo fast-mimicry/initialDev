@@ -100,7 +100,7 @@ export const PureHtmlComponent = (props) => {
       <div>
           
           {/*** ダウンロードボタン ***/}
-          <div style={{ position:"absolute", bottom:"32px", right:"32px"}}>
+          <div style={{ position:"absolute", bottom:"32px", right:"32px", "z-index":"10" }}>
             <button 
               class="waves-effect waves-light btn" 
               style={{"background-color": "lightgrey", padding:"10px", "border-radius":"100px", "text-align":"center", border:"lightgrey", "box-shadow": "0 3px 3px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12), 0 3px 1px -1px rgba(0,0,0,.2)" }} 
@@ -113,7 +113,7 @@ export const PureHtmlComponent = (props) => {
 
           {/* 横幅100vwでページを開始します(親から600pxで当ページを取得しているため拡張する) */}
           <div style={{ display:"relative"}} >
-            <div style={{ position:"absolute", left:"0", width:"100vw","background-color": "#fafafa" }} >
+            <div style={{ position:"absolute", left:"0", width:"100vw", height:"calc(100vh - 100px)", "background-color": "#fafafa" }} >
             <h1 style={{ "margin-left":"16px"}}>
               <span>Accelerate Your Career:</span>
             </h1>
@@ -129,9 +129,7 @@ export const PureHtmlComponent = (props) => {
                     <div className={classes[`base-card__cardLayout__card`]}>
                       <div >
                         {/* 1_image */}
-                        <div style={{ "width":"80px", "border-radius":"40px", 
-                        "background-color": "#87cefa" }}
-                        >
+                        <div style={{ "width":"80px", "border-radius":"40px", "background-color": "#87cefa" }} >
                           <img 
                             style={{ height:"80px", transform:"rotateZ(20deg)" }}
                             src={POKE_DATA.filter(x => x.id == 25)[0].url || ""}
