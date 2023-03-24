@@ -6,8 +6,28 @@
   padding: 8px;
 }
 
-/* カードテスト */
-.cardtest {
+/* 1ベースのカード */
+.base-card {
+  margin:8px;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,.3);
+}
+
+/* 1-1カードレイアウトsectionのベース */
+.base-card__cardLayout {
+  margin:8px;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,.3);
+}
+
+/* 1-1-1各カード */
+.base-card__cardLayout__card {
+  position:relative;
+  margin:8px;
   padding: 8px;
   background-color: #ffffff;
   border-radius: 4px;
@@ -16,33 +36,100 @@
 
 
 .notifs {
-  position:absolute;
-  bottom: 0;
-  left: 8;
-  background-color: rgba(0,0,0,0.5);
-  border-bottom: 6px solid #000000;
-  height: 100px;
-  width: calc(100vw - 20px);
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  padding:8px;
+  background-color: rgba(0,0,0,0.3);
+  width:100vw;
 }
-.notifs::before {
+/* .notifs::before {
   position: relative;
   width: 100vw;
-} 
+}  */
 
-/* ダウンロードボタン */
+/*** ダウンロードボタン ***/
 .download {
   font-size: 64px
 }
 
-/* text-size */
+/*** 通知バー ***/
+/* フォント */
+.notifs__text--head {
+  font-size: 3.75rem;
+  line-height: 1;
+  color:#ffffff;
+  text-align:center;
+  margin-bottom:8px;
+}
+.notifs__text--body {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color:#ffffff;
+  text-align:center;
+}
+
+/*** フォントサイズ ***/
+/* 18px */
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+/* 20px */
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
+
+/* 24px */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+
+
+/* ボタンクリック時のエフェクト */
+/* .waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+}
+
+.waves-effect .waves-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  opacity: 0;
+  background: rgba(0,0,0,.2);
+  background: radial-gradient(rgba(0, 0, 0, 0.2) 0, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.5) 60%, rgba(255, 255, 255, 0) 70%);
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  -webkit-transition-property: -webkit-transform,opacity;
+  -webkit-transition-property: opacity,-webkit-transform;
+  transition-property: opacity,-webkit-transform;
+  transition-property: transform,opacity;
+  transition-property: transform,opacity,-webkit-transform;
+  -webkit-transform: scale(0) translate(0, 0);
+  transform: scale(0) translate(0, 0);
+  pointer-events: none
+}
+
+.waves-effect.waves-light .waves-ripple {
+  background: rgba(255,255,255,.4);
+  background: radial-gradient(rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 70%)
+} */
+
 
 
 @media (max-width: 600px) {
